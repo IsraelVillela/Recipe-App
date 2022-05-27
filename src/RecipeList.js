@@ -4,14 +4,14 @@ function RecipeList({ RecipeData, deleteHandler }) {
   
   // TODO: Display the list of recipes using the structure of table that is provided.
   // TODO: Create at least one additional component that is used by this component.
-  const recipeMap= RecipeData.map((food)=>(
-    <tr key={food}>
-      <td key={food}>{food.name}</td> 
-      <td key={food}>{food.cuisine}</td>
-      <td key={food}><img src={food.photo} /> </td>
-      <td key={food} className="content_td"><p>{(food.ingredients)}</p></td>
-      <td key={food} className="content_td"><p>{food.preparation}</p></td>
-      <td key={food}><button  onClick={()=> deleteHandler(food)} name="delete">Delete</button></td>
+  const recipeMap= RecipeData.map((food,index)=>(
+    <tr key={index}>
+      <td>{food.name}</td> 
+      <td>{food.cuisine}</td>
+      <td><img src={food.photo} /> </td>
+      <td className="content_td"><p>{(food.ingredients)}</p></td>
+      <td className="content_td"><p>{food.preparation}</p></td>
+      <td><button  onClick={()=> deleteHandler(food)} name="delete">Delete</button></td>
     </tr>
   ))
 
@@ -39,3 +39,4 @@ function RecipeList({ RecipeData, deleteHandler }) {
 }
 
 export default RecipeList;
+
